@@ -5,8 +5,9 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
 import Popup from "../Header/Popup";
 
-const ProductTile = ({ product, incrementCart,popupVisible,handleYesCart, handleNoCart, isAddedCart }) => {
-
+const ProductTile = (props) => {
+  const { product, incrementCart,popupVisible,handleYesCart, handleNoCart,pendingProduct } = props;
+console.log("disableCart", pendingProduct)
   return (
     <div className="wrapper">
       <div className="card">
@@ -19,7 +20,7 @@ const ProductTile = ({ product, incrementCart,popupVisible,handleYesCart, handle
 
         {/* Button to add the product to the cart */}
         <div>
-          <button onClick={()=>incrementCart(product)} className="card-btn" disable={isAddedCart}>
+          <button onClick={()=>incrementCart(product)} className={ product.id === pendingProduct?.id ? "card-btn-disable" :"card-btn"}>
             Add to Cart
           </button>
         </div>

@@ -12,25 +12,24 @@ const App = () => {
 const [popupVisible, setPopupVisible] = useState(false);
 const [pendingProduct, setPendingProduct] = useState(null);
 const [cartItems, setCartItems] = useState([]);
+const [disableCart, setDisableCart] = useState(false);
 
   const incrementCart = (product) => {
-    // setCartCount(cartCount + 1);
     setPendingProduct(product);
     setPopupVisible(true)
   };
 
   const handleYesCart = ()=>{
     if(pendingProduct) {
-      setCartItems([...cartItems, pendingProduct.id]);
-    setCartCount(cartCount+1);
+      setCartCount(cartCount+1);
     }
-    setPopupVisible(false);
     setPendingProduct(null);
+    setPopupVisible(false);
   }
 
   const handleNoCart = () => {
-    setPopupVisible(false);
     setPendingProduct(null);
+    setPopupVisible(false);
   }
 
   return (
@@ -38,9 +37,14 @@ const [cartItems, setCartItems] = useState([]);
       <div>
         <Header cartCount={cartCount} /> {/* Pass cartCount to Header */}
         <Routes> {/* Define your routes */}
-        <Route path="/" element={<MainContent incrementCart={incrementCart} 
-        handleNoCart={handleNoCart} handleYesCart={handleYesCart}
-        cartItems={cartItems} popupVisible={popupVisible}/>} />
+        <Route path="/" element={
+            <MainContent incrementCart={incrementCart} 
+              handleNoCart={handleNoCart} handleYesCart={handleYesCart}
+              popupVisible={popupVisible} 
+               pendingProduct={pendingProduct}
+              />
+              }
+           />
           <Route path="/productDetails" element={<ProductDetails />} /> {/* Another route */}
         </Routes>
       </div>

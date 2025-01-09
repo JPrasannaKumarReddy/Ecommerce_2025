@@ -1,10 +1,11 @@
 import React, { useState } from "react"; 
-import Sidebar from "../Sidebar/Sidebar"; 
+import Sidebar from "../Sidebar/Sidebars"; 
 import ProductTile from "../ProductTile/ProductTile"; 
 import { productData } from "../../helpers/ProductData"; 
 import "./MainContent.css"; 
 import Popup from "../Header/Popup"
-const MainContent = ({ incrementCart,handleYesCart,handleNoCart, popupVisible, cartItems }) => {
+const MainContent = (props) => {
+  const { incrementCart,handleYesCart,handleNoCart, popupVisible, cartItems,disableCart,pendingProduct } = props;
   const [currentCategory, setCurrentCategory] = useState("Computers");
   const [currentItems, setCurrentItems] = useState(productData.Electronics.Computers);
 
@@ -24,11 +25,11 @@ const MainContent = ({ incrementCart,handleYesCart,handleNoCart, popupVisible, c
         
         <div className="product-grid"> 
   
-          {currentItems.map((item) => (
-            <ProductTile key={item.id} product={item} incrementCart={incrementCart}
+          { currentItems.map((item) => (
+            <ProductTile key={item.id} product={item} 
+              incrementCart={incrementCart}
              handleNoCart={handleNoCart} handleYesCart={handleYesCart} 
-             isAddedCart={cartItems.includes(item.id)}
-             
+             pendingProduct={pendingProduct}
              />
           ))}
         </div>

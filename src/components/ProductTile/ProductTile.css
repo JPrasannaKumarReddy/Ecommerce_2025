@@ -65,6 +65,17 @@
     background: #FFF;
 }
 
-.card-btn:disabled {
-    cursor : not-allowed;
+.card-btn-disable {
+    all: unset; 
+    display: block;
+    margin-left: auto;
+    border: 2px solid #FFF;
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-size: 10px;
+    font-weight: 600;
+    transition: all 0.5s;
+    text-align: center;
+    letter-spacing: 1.2px;
+    cursor : not-allowed !important;
 }
