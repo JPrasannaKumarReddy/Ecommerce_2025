@@ -3,9 +3,8 @@ import Sidebar from "../Sidebar/Sidebar";
 import ProductTile from "../ProductTile/ProductTile"; 
 import { productData } from "../../helpers/ProductData"; 
 import "./MainContent.css"; 
-
-
-const MainContent = ({ incrementCart }) => {
+import Popup from "../Header/Popup"
+const MainContent = ({ incrementCart,handleYesCart,handleNoCart, popupVisible, cartItems }) => {
   const [currentCategory, setCurrentCategory] = useState("Computers");
   const [currentItems, setCurrentItems] = useState(productData.Electronics.Computers);
 
@@ -26,9 +25,18 @@ const MainContent = ({ incrementCart }) => {
         <div className="product-grid"> 
   
           {currentItems.map((item) => (
-            <ProductTile key={item.id} product={item} incrementCart={incrementCart} />
+            <ProductTile key={item.id} product={item} incrementCart={incrementCart}
+             handleNoCart={handleNoCart} handleYesCart={handleYesCart} 
+             isAddedCart={cartItems.includes(item.id)}
+             
+             />
           ))}
         </div>
+        {
+          popupVisible && (
+            <Popup handleNoCart={handleNoCart} handleYesCart={handleYesCart}/>
+          )
+        }
       </div>
     </div>
   );

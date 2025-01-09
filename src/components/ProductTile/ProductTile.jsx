@@ -1,10 +1,11 @@
-import React from "react"; 
+import React,{useState} from "react"; 
 import "./ProductTile.css"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"; 
 import { Link } from 'react-router-dom';
+import Popup from "../Header/Popup";
 
-const ProductTile = ({ product, incrementCart }) => {
+const ProductTile = ({ product, incrementCart,popupVisible,handleYesCart, handleNoCart, isAddedCart }) => {
 
   return (
     <div className="wrapper">
@@ -18,7 +19,7 @@ const ProductTile = ({ product, incrementCart }) => {
 
         {/* Button to add the product to the cart */}
         <div>
-          <button onClick={incrementCart} className="card-btn">
+          <button onClick={()=>incrementCart(product)} className="card-btn" disable={isAddedCart}>
             Add to Cart
           </button>
         </div>
