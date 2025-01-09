@@ -1,26 +1,22 @@
-/* Styling for the navbar container */
+
 .navbar {
-    color: aliceblue; /* Text color is set to aliceblue */
-    background-color: rgb(87, 87, 87); /* Background color of the navbar is a dark grey */
-    padding: 10px; /* Padding around the navbar content */
+    color: aliceblue; 
+    background-color: rgb(87, 87, 87); 
+    padding: 10px; 
 }
 
-/* Styling for the h1 element inside the navbar */
 .navbar h1 {
-    font-size: 26px; /* Font size of the title is set to 26px */
-    margin-left: 45%; /* The title is centered horizontally with a left margin of 45% */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* A sans-serif font stack is used for the title */
+    font-size: 26px; 
+    margin-left: 45%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
 }
 
-/* Class for the shopping cart icon */
 .cart-icon {
-    font-size: 25px; /* The cart icon is set to a font size of 25px */
+    font-size: 25px;
 }
 
-/* Media query for screens with a maximum width of 768px (responsive design for mobile or small screens) */
 @media (max-width: 768px) {
-    /* When the screen is smaller than or equal to 768px, the navbar h1 will no longer be centered */
     .navbar h1 {
-        margin-left: 0; /* Remove the left margin to prevent centering */
+        margin-left: 0;
     }
 }

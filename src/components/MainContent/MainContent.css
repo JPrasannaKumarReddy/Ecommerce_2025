@@ -1,26 +1,23 @@
-/* Styling for the main content area that holds product sections */
 .main-content {
-    display: flex; /* Uses Flexbox layout for the main content, enabling flexible item arrangement */
-    gap: 5%; /* Adds a 5% gap between the child elements inside .main-content */
-    width: 100%; /* The main content takes up 100% of the available width of its container */
+    display: flex;
+    gap: 5%;
+    width: 100%;
 }
 
-/* Styling for the product section */
 .product-section {
-    width: 80%; /* The product section takes up 80% of the available width within the main content */
+    width: 80%;
 }
 
-/* Styling for the product section header (h2) */
 .product-section h2 {
-    text-align: center; /* Centers the title text within the product section */
-    padding: 10px; /* Adds 10px of padding around the header */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Specifies a clean sans-serif font family for the header text */
+    text-align: center; 
+    padding: 10px; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-/* Styling for the grid of products inside the product section */
+
 .product-grid {
-    display: grid; /* Uses CSS Grid to layout the product items */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Creates responsive columns that adjust based on screen size, with a minimum width of 200px for each item and distributing available space evenly */
-    gap: 1rem; /* Adds a gap of 1rem between each grid item */
-    margin: 1rem; /* Adds a 1rem margin around the grid */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 1rem; 
+    margin: 1rem;
 }
