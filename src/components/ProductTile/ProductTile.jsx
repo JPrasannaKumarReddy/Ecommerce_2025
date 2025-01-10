@@ -7,8 +7,6 @@ import Popup from "../Header/Popup";
 
 const ProductTile = (props) => {
   const { product, incrementCart,popupVisible,handleYesCart, handleNoCart,pendingProduct,disabledProducts } = props;
-console.log("disableCart", product.id)
-console.log("val",pendingProduct?.id)
   return (
     <div className="wrapper">
       <div className="card">

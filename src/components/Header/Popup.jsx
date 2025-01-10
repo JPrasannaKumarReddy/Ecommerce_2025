@@ -1,7 +1,20 @@
-import react from "react";
+import react,{useEffect} from "react";
 
 const Popup = ({handleYesCart, handleNoCart}) =>{
 
+    useEffect(() => {
+        const handleKeydown=(event)=>{
+            if(event.key === "Escape"){
+                handleNoCart();
+            }
+        }
+
+        window.addEventListener("keydown",handleKeydown);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeydown)
+        }
+    }, [])
 
     return(
         <div className="popup"> 
