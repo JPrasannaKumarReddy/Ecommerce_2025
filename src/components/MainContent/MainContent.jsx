@@ -5,7 +5,7 @@ import { productData } from "../../helpers/ProductData";
 import "./MainContent.css"; 
 import Popup from "../Header/Popup"
 const MainContent = (props) => {
-  const { incrementCart,handleYesCart,handleNoCart, popupVisible, cartItems,disableCart,pendingProduct } = props;
+  const { incrementCart,handleYesCart,handleNoCart, popupVisible, cartItems,disableCart,pendingProduct,disabledProducts } = props;
   const [currentCategory, setCurrentCategory] = useState("Computers");
   const [currentItems, setCurrentItems] = useState(productData.Electronics.Computers);
 
@@ -30,6 +30,7 @@ const MainContent = (props) => {
               incrementCart={incrementCart}
              handleNoCart={handleNoCart} handleYesCart={handleYesCart} 
              pendingProduct={pendingProduct}
+             disabledProducts={disabledProducts}
              />
           ))}
         </div>

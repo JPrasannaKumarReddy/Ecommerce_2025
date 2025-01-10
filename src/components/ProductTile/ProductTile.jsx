@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 import Popup from "../Header/Popup";
 
 const ProductTile = (props) => {
-  const { product, incrementCart,popupVisible,handleYesCart, handleNoCart,pendingProduct } = props;
-console.log("disableCart", pendingProduct)
+  const { product, incrementCart,popupVisible,handleYesCart, handleNoCart,pendingProduct,disabledProducts } = props;
+console.log("disableCart", product.id)
+console.log("val",pendingProduct?.id)
   return (
     <div className="wrapper">
       <div className="card">
@@ -20,9 +21,13 @@ console.log("disableCart", pendingProduct)
 
         {/* Button to add the product to the cart */}
         <div>
-          <button onClick={()=>incrementCart(product)} className={ product.id === pendingProduct?.id ? "card-btn-disable" :"card-btn"}>
-            Add to Cart
-          </button>
+        <button
+  onClick={() => incrementCart(product)}
+  className={disabledProducts.includes(product.id) ? "card-btn-disable" : "card-btn"}
+  disabled={disabledProducts.includes(product.id)}
+>
+  Add to Cart
+</button>
         </div>
       </div>
     </div>
